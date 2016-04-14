@@ -42,3 +42,24 @@ twitter/secrets.cfg
 
 app/_init_.py
 app/json_api.py
+
+
+Benchmarks
+--------------
+
+users = 2
+count = 10
+time = 0.509543895721 seconds
+
+users = 4 
+count = 200
+time = 3.0190050602
+
+users = 3
+count = 200
+time = 2.40514111519 seconds
+
+users = 7
+count = 150
+time = 3.88269877434
+

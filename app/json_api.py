@@ -6,7 +6,7 @@ import re
 import urlparse
 from app import app
 import ConfigParser
-
+import time
 class TweetRc(object):
     def __init__(self):
         self._config = None
@@ -93,7 +93,7 @@ def sort_recent_tweets(tweets, count=1):
     statuses = []
     for index, key in enumerate(keys):
         if index == count:
-            breakgi
+            break
         status = tweets[keys[index]]['status']
         user = tweets[keys[index]]['user']
 
@@ -150,7 +150,6 @@ def get_status(user, screen_name):
 
         tweets.update({tweet.id: {'status': tweet.text.encode('utf-8'), 'user': screen_name, \
                         'user_mentions': user_mentions, 'hashtags': hashtags, 'urls': urls, 'media':single}})
-
     return tweets
 
 @app.route('/statuses', methods=["GET"])
