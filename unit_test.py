@@ -26,9 +26,9 @@ class MyTest(unittest.TestCase):
        
         tweet = "Test tweet.com"
         self.assertEqual(json_api.replace_media(media,tweet),assertMedia)
-
+    
     def test_verify_user_null(self):
         fakeuser = "aac43plk"
-        self.assertEqual(json_api.verify_user(fakeuser,1,None), {})
+        self.assertDictEqual(json_api.verify_user(fakeuser,1,None),{})
 if __name__ == '__main__':
     unittest.main()

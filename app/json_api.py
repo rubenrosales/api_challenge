@@ -109,9 +109,9 @@ def sort_recent_tweets(tweets, count=1):
 ## check if screen name user entered is valid ##
 ## if it is then it will return N amount of tweets from that user ##
 ## N = count ##
-def verify_user(screen_name, count=1, next_cursor=None):
+def verify_user(screen_name, count=1, cursor=None):
     try:
-        user = api.GetUserTimeline(screen_name=screen_name, count=count, since_id=next_cursor)
+        user = api.GetUserTimeline(screen_name=screen_name, count=count, since_id=cursor)
     except:
         return {}
     else:
@@ -166,15 +166,15 @@ def index():
         count = 1
     
     if request.args.get('cursor'):
-        next_cursor = int(request.args.get('cursor'))
+        cursor = int(request.args.get('cursor'))
     else:
-        next_cursor = None
+        cursor = None
     
     ## for each screen name entered, verify if its valid and return N amount of tweets ##
     ## N = count ##
     if request.args.get('screen_names'):
         for user in request.args.get('screen_names').split(','):
-            placeholder.update(verify_user(user, count, next_cursor))
+            placeholder.update(verify_user(user, count, cursor))
 
     ## set tweets and next_cursor for output ##
     if len(placeholder) > 0:

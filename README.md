@@ -3,6 +3,9 @@ api_challenge
 
 A HTTP web service that accesses the Twitter API to fetch and return tweets preformatted for display. 
 
+Using python-twitter to access Twitter API https://python-twitter.readthedocs.org/en/latest/
+
+Tested using python 2.7.10, Flask 0.10.1, and python-twitter 2.2
 Installation
 ------------
 
@@ -27,7 +30,7 @@ Dependencies
 -------------
 Flask 0.10.1
 python-twitter 2.2
-python 2
+python 2.7
 
 Files
 ------------
