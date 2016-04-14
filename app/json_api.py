@@ -62,7 +62,7 @@ def expand_url(short, expanded):
     return '<a href="{0}">{1}</a>'.format(expanded,short)
 
 ## replace links in tweet with 'display_url' and link it to it's 'expanded_url' ##
-def replace_url(url,status):
+def replace_url(url, status):
     for short,expanded in url.items():
         status = status.replace(str(short), expand_url(str(short),str(expanded)))
     return status
@@ -74,13 +74,13 @@ def replace_media(url, status):
     return status
 
 ## add links to user profile mentioned in tweet  ##
-def replace_usernames(usernames,status):
+def replace_usernames(usernames, status):
     for user_name in usernames:
         status = status.replace('@{0}'.format(user_name), format_url('user', user_name))
     return status
 
 ## add links to hashtag mentioned in tweet  ##
-def replace_hashtags(hashtags,status):
+def replace_hashtags(hashtags, status):
     for hashtag in hashtags:
         status = status.replace('#{0}'.format(hashtag), format_url('hashtag', hashtag))
     return status
@@ -115,10 +115,10 @@ def verify_user(screen_name, count=1, next_cursor=None):
     except:
         return {}
     else:
-        return get_status(user,screen_name)
+        return get_status(user, screen_name)
 
 ## get tweets for each user entered ##
-def get_status(user,screen_name):
+def get_status(user, screen_name):
     
     tweets = {}
     
