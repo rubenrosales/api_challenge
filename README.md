@@ -17,6 +17,12 @@ Running build.sh automatically starts the program but to manually start it run:
 bash run.sh
 
 
+Use
+-------------
+example url:
+http://localhost:5000/statuses?screen_names=user1&count=10&cursor=720670860223258625
+
+
 Dependencies
 -------------
 Flask 0.10.1

@@ -93,7 +93,7 @@ def sort_recent_tweets(tweets, count=1):
     statuses = []
     for index, key in enumerate(keys):
         if index == count:
-            break
+            breakgi
         status = tweets[keys[index]]['status']
         user = tweets[keys[index]]['user']
 
@@ -127,7 +127,7 @@ def get_status(user, screen_name):
     for index, tweet in enumerate(user):
         
         t = json.loads(str(tweet))
-     
+        
         user_mentions, hashtags, urls, media = [], [], {}, []
         single = {}
         
@@ -173,8 +173,9 @@ def index():
     
     ## for each screen name entered, verify if its valid and return N amount of tweets ##
     ## N = count ##
-    for user in request.args.get('screen_names').split(','):
-        placeholder.update(verify_user(user, count, next_cursor))
+    if request.args.get('screen_names'):
+        for user in request.args.get('screen_names').split(','):
+            placeholder.update(verify_user(user, count, next_cursor))
 
     ## set tweets and next_cursor for output ##
     if len(placeholder) > 0:
