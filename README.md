@@ -5,18 +5,30 @@ A HTTP web service that accesses the Twitter API to fetch and return tweets pref
 
 Using python-twitter to access Twitter API https://python-twitter.readthedocs.org/en/latest/
 
-Tested using python 2.7.10, Flask 0.10.1, and python-twitter 2.2
+
+
+Environment
+------------
+Tested using these configurations
+
+OS: Ubuntu, OS X 10.11.4
+Python: 2.7.10
+pip 8.1.1
+Flask 0.10.1
+python-twitter 2.2
+
 Installation
 ------------
 
 bash build.sh
 
-This will install all necessary dependencies and will execute the program. All necessary authentication tokens are already preconfigured in twitter/secrets.cfg
+This will install some necessary dependencies and will execute the program. All necessary authentication tokens are already preconfigured in twitter/secrets.cfg
 
 Running
 -----------
 
 Running build.sh automatically starts the program but to manually start it run:
+
 bash run.sh
 
 
@@ -28,9 +40,17 @@ http://localhost:5000/statuses?screen_names=user1&count=10&cursor=72067086022325
 
 Dependencies
 -------------
+
+Required but not auto Installed
+Python 2.7.10
+pip
+
+
+Installed
+
 Flask 0.10.1
 python-twitter 2.2
-python 2.7
+
 
 Files
 ------------
@@ -38,6 +58,7 @@ Files
 run.py
 README.md
 build.sh
+unit_test.py
 
 twitter/run.sh
 twitter/requirements.txt

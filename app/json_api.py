@@ -158,7 +158,7 @@ def index():
     ## dictionary to hold statuses user requested ##
     statuses = {'next_cursor': 'null', 'statuses': []}
     placeholder = {}
-    
+    errors = {}
     ## parse count and next_cursor from url ##
     if request.args.get('count'):
         count = request.args.get('count')
@@ -175,11 +175,19 @@ def index():
     if request.args.get('screen_names'):
         for user in request.args.get('screen_names').split(','):
             placeholder.update(verify_user(user, count, cursor))
+    else:
+        err = 'No user names found in screen_names field'
+        errors.update({'screen_names error':err})
+
 
     ## set tweets and next_cursor for output ##
     if len(placeholder) > 0:
         next_cursor, status = sort_recent_tweets(placeholder, int(count))
         statuses.update({'next_cursor': next_cursor, 'statuses': status})
+    else:
+        err = 'No tweets found'
+        errors.update({'tweets error':err})
+        return jsonify(errors)
 
     return jsonify(statuses)
 
